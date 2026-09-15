@@ -18,10 +18,10 @@ async function setDatabaseConnction() {
     //Singleton DB connection
     if (null === connection) {
         connection = await mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: ''
+            host: 'database-1.cpeiiyou6r7g.us-east-2.rds.amazonaws.com',
+            user: 'admin',
+            password: 'richterhightowerlake',
+            database: 'mysql'
         });
     }
 }
