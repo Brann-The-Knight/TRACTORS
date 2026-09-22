@@ -8,7 +8,8 @@ const app = express();
 const upload = multer();
 const port = process.env.PORT || 8080;
 
-app.use(express.static('public'))
+//app.use(express.static('public'))
+app.use(express.json());
 app.get(
     '/tractor/',
     upload.none(),
@@ -70,6 +71,18 @@ app.post(
         return response.json({message: 'Success'});
     }
 );
+//ICA 5 Work
+app.post("/api/sensor", (req, res) => {
+
+    console.log(req.body);
+
+    res.json({
+        message: "Sensor data received"
+    });
+
+});
+
+
 app.put(
     '/tractor/:id/',
     upload.none(),
@@ -99,3 +112,8 @@ app.put(
     }
 );
 app.listen(port);
+//ICA 5
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+
