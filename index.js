@@ -63,7 +63,7 @@ app.post(
             await tractors.addTractor(request.body);
         } catch (error) {
             return response
-                console.log(error);
+                
                 .status(500)
                 .json({message: 'Something went wrong with the server.'});
         }
