@@ -42,35 +42,35 @@ app.get(
         return response.json({message: 'Success', data: result});
     }
 );
-app.post(
-    '/tractor/',
-    upload.none(),
-    check('name', 'Please enter a name.').isLength({min: 1}),
-    check('clue', 'Please enter a clue.').isLength({min: 1}),
-    check('question', 'Please enter a question.').isLength({min: 1}),
-    check('answer', 'Please enter an answer.').isIn(['A', 'B', 'C', 'D']),
-    async (request, response) => {
-        const errors = validationResult(request)
-        if (!errors.isEmpty()) {
-            return response
-                .status(400)
-                .json({
-                    message: 'Request fields or files are invalid.',
-                    errors: errors.array(),
-                });
-        }
+// app.post(
+//     '/tractor/',
+//     upload.none(),
+//     check('name', 'Please enter a name.').isLength({min: 1}),
+//     check('clue', 'Please enter a clue.').isLength({min: 1}),
+//     check('question', 'Please enter a question.').isLength({min: 1}),
+//     check('answer', 'Please enter an answer.').isIn(['A', 'B', 'C', 'D']),
+//     async (request, response) => {
+//         const errors = validationResult(request)
+//         if (!errors.isEmpty()) {
+//             return response
+//                 .status(400)
+//                 .json({
+//                     message: 'Request fields or files are invalid.',
+//                     errors: errors.array(),
+//                 });
+//         }
 
-        try {
-            await tractors.addTractor(request.body);
-        } catch (error) {
-            return response
+//         try {
+//             await tractors.addTractor(request.body);
+//         } catch (error) {
+//             return response
                 
-                .status(500)
-                .json({message: 'Something went wrong with the server.'});
-        }
-        return response.json({message: 'Success'});
-    }
-);
+//                 .status(500)
+//                 .json({message: 'Something went wrong with the server.'});
+//         }
+//         return response.json({message: 'Success'});
+//     }
+// );
 //ICA 5 Work
 app.post("/api/sensor", (req, res) => {
 
@@ -111,7 +111,7 @@ app.put(
         return response.json({message: 'Success'});
     }
 );
-app.listen(port);
+// app.listen(port);
 //ICA 5
 app.listen(3000, () => {
     console.log("Server running on port 3000");
